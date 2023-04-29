@@ -1,7 +1,11 @@
 package arrary
 
 
-//查找最小的连续满足给定target的子数组长度
+/**
+ * 查找最小的连续满足给定target的子数组长度
+ * 滑动窗口的思想
+ */
+
 fun findMinArray(array: IntArray, target: Int): Int {
     var start = 0
     var end = 0
