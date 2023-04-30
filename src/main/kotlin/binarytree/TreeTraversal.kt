@@ -112,7 +112,57 @@ fun postTraversal2(root: TreeNode?) {
     }
 }
 
+fun postTraversal3(root: TreeNode) {
+    val stack = Stack<TreeNode>()
+    stack.push(root)
+    var prev: TreeNode? = null
+    while (stack.isEmpty().not()) {
+        val curr = stack.peek()
+        if (prev == null || prev.left == curr || prev.right == curr) {
+            if (curr.left != null) {
+                stack.push(curr.left)
+            } else if (curr.right != null) {
+                stack.push(curr.right)
+            }
+        } else if (curr.left == prev) {
+            if (curr.right != null) {
+                stack.push(curr.right)
+            }
+        } else {
+            println(curr.value)
+            stack.pop()
+        }
+        prev = curr
+    }
+}
+
+fun postOrderTraversal4(root: TreeNode) {
+    val stack = Stack<TreeNode>()
+    val result = Stack<TreeNode>()
+    stack.push(root)
+    while (stack.isEmpty().not()) {
+        val node = stack.pop()
+        result.push(node)
+        if (node.left != null) {
+            stack.push(node.left)
+        }
+        if (node.right != null) {
+            stack.push(node.right)
+        }
+    }
+
+    while (result.isEmpty().not()) {
+        println(result.pop().value)
+    }
+}
+
+
+//todo
+fun nextNodeInMidTraversal(root: TreeNode?, target: Int) {
+
+
+}
 
 fun main() {
-    postTraversal2(buildTreeNode())
+    postTraversal3(buildTreeNode())
 }
