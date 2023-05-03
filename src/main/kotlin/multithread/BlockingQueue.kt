@@ -37,9 +37,8 @@ class BlockingQueue<T>(var capacity: Int) {
     }
 }
 
-fun main() {
+suspend fun main() {
     val blockingQueue = BlockingQueue<Int>(1)
-
     thread {
         repeat(100) {
             blockingQueue.offer(it)

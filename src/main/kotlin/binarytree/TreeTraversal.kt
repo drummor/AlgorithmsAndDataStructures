@@ -156,6 +156,20 @@ fun postOrderTraversal4(root: TreeNode) {
     }
 }
 
+// 二 叉树 的深度
+
+fun treeNodeHeight(root: TreeNode?): Int {
+    if (root == null) {
+        return 0
+    }
+    val leftHeight = treeNodeHeight(root.left)
+    val rightHeight = treeNodeHeight(root.right)
+    return if (leftHeight >= rightHeight) {
+        leftHeight + 1
+    } else {
+        rightHeight + 1
+    }
+}
 
 //todo
 fun nextNodeInMidTraversal(root: TreeNode?, target: Int) {
