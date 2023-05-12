@@ -1,7 +1,5 @@
 package dynamic_planning
 
-import kotlin.contracts.contract
-
 /*
 每次跳或者2
  跳到第target有多少种

@@ -11,14 +11,16 @@ import java.util.Stack
  *  / \   / \
  *  3  4  5  6
  */
-fun preTraversal(root: TreeNode?) {
+fun preTraversal(root: TreeNode?): IntArray {
+    var array = IntArray(0)
     if (root == null) {
-        return
+        return array
     }
     val stack = Stack<TreeNode>()
     var currentNode = root
     while (stack.isEmpty().not() || currentNode != null) {
         if (currentNode != null) {
+            array = array.plus(currentNode.value)
             println(currentNode.value)
             stack.push(currentNode)
             currentNode = currentNode.left
@@ -26,6 +28,7 @@ fun preTraversal(root: TreeNode?) {
             currentNode = stack.pop().right
         }
     }
+    return array
 }
 
 
@@ -36,9 +39,10 @@ fun preTraversal(root: TreeNode?) {
  *  / \   / \
  *  3  4  5  6
  */
-fun midTraversal(root: TreeNode?) {
+fun midTraversal(root: TreeNode?): IntArray {
+    var array = IntArray(0)
     if (root == null) {
-        return
+        return array
     }
     val stack = Stack<TreeNode>()
     var currentNode = root
@@ -48,10 +52,12 @@ fun midTraversal(root: TreeNode?) {
             currentNode = currentNode.left
         } else {
             currentNode = stack.pop()
+            array = array.plus(currentNode.value)
             println(currentNode.value)
             currentNode = currentNode.right
         }
     }
+    return array
 }
 
 /**
@@ -61,9 +67,10 @@ fun midTraversal(root: TreeNode?) {
  *  / \   / \
  *  3  4  5  6
  */
-fun postTraversal(root: TreeNode?) {
+fun postTraversal(root: TreeNode?): IntArray {
+    val array = IntArray(0)
     if (root == null) {
-        return
+        return array
     }
     var currentNode = root
     val stack = Stack<TreeNode>()
@@ -78,12 +85,14 @@ fun postTraversal(root: TreeNode?) {
                 currentNode = currentNode.right
             } else {
                 currentNode = stack.pop()
+                array.plus(currentNode.value)
                 println(currentNode.value)
                 last = currentNode
                 currentNode = null
             }
         }
     }
+    return array
 }
 
 /**
