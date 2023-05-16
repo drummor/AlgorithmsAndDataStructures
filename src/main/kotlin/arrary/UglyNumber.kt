@@ -30,6 +30,7 @@ fun isUgly(n: Int): Boolean {
         tmp /= 2
     }
 
+
     while (tmp % 3 == 0) {
         tmp /= 3
     }

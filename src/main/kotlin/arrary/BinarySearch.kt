@@ -14,6 +14,7 @@ fun binarySearch(array: IntArray?, target: Int): Int {
     var end = array!!.size - 1
     var begin = 0
     var mid = (begin + end) / 2
+
     while (begin <= end) {
         val midValue = array!![mid]
         if (target > midValue) {

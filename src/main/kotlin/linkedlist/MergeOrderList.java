@@ -1,8 +1,10 @@
 package linkedlist;
 
 
+import static linkedlist.LinkedNodeKt.*;
+
 public class MergeOrderList {
-   public static LinkedNode mergeNode(LinkedNode node1, LinkedNode node2) {
+    public static LinkedNode mergeNode(LinkedNode node1, LinkedNode node2) {
         if (node1 == null) {
             return node2;
         }
@@ -27,6 +29,7 @@ public class MergeOrderList {
                 p.setNext(p2);
                 p2 = p2.getNext();
             }
+            p = p.getNext();
         }
         if (p1 == null) {
             p.setNext(p2);
@@ -40,5 +43,6 @@ public class MergeOrderList {
 
     public static void main(String[] args) {
 
+        printNode( mergeNode(buildLinkedNode0(), buildLinkedNode2()));
     }
 }
